@@ -29,6 +29,8 @@ See also [LTS releases](https://docs.victoriametrics.com/lts-releases/).
 
 ## tip
 
+**Update note 1: [stream aggregation](https://docs.victoriametrics.com/stream-aggregation/): perform deduplication for all received data when specifying `-streamAggr.dedupInterval` or `-remoteWrite.streamAggr.dedupInterval` command-line flag. Previously, if the `-remoteWrite.streamAggr.config` or `-streamAggr.config` is set, only series that matched configs are deduplicated.**
+
 * FEATURE: add `/influx/health` health-check handler for Influx endpoints. This is needed as some clients use the health endpoint to determine if the server is healthy and ready for data ingestion. See [this issue](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/6653) for the details.
 * FEATURE: [vmctl](https://docs.victoriametrics.com/vmctl/): add `--vm-backoff-retries`, `--vm-backoff-factor`, `--vm-backoff-min-duration` and `--vm-native-backoff-retries`, `--vm-native-backoff-factor`, `--vm-native-backoff-min-duration` command-line flags. These flags allow to change backoff policy config for import requests to VictoriaMetrics. See [this issue](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/6622).
 * FEATURE: [vmagent](https://docs.victoriametrics.com/vmagent/): allow overriding the `sample_limit` option at [scrape_configs](https://docs.victoriametrics.com/sd_configs/#scrape_configs) when a label `__sample_limit__` is specified for target. See [this issue](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/6665). Thanks to @zoglam for the [pull request](https://github.com/VictoriaMetrics/VictoriaMetrics/pull/6666).
