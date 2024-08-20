@@ -13,7 +13,7 @@ func BenchmarkMetrics(b *testing.B) {
 
 	var pi promInstant
 	if err := pi.Unmarshal(payload); err != nil {
-		b.Fatalf("%s", err.Error())
+		b.Fatal(err.Error())
 	}
 	b.Run("Instant", func(b *testing.B) {
 		for i := 0; i < b.N; i++ {
